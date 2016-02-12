@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import TextInput from './TextInput'
 
 class App extends Component {
 
@@ -8,7 +8,9 @@ class App extends Component {
 }
 	render(){
 		return (
-			<div>welcome test me  This is react now</div>
+			<div>
+				<TextInput/>
+			</div>
 			);
 	}
 }

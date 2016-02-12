@@ -18,9 +18,11 @@ app.use('/', function (req, res) {
     res.sendFile(path.resolve('client/index.html'));
 });
 
-var port = 8001;
+//Set Correct Port 
+var port = process.env.PORT;
 
 app.listen(port, function(error) {
   if (error) throw error;
   console.log("Express server listening on port", port);
+  console.log("running on ip",process.env.IP)
 });
