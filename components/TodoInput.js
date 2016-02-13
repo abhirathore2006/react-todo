@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import TextDisplay from './TextDisplay'
+import actions from '../redux/actions'
 
-class TextInput extends Component {
+class TodoInput extends Component {
 
 	constructor(props) {
 		super(props);
@@ -17,13 +17,22 @@ class TextInput extends Component {
             inputText: event.target.value
         });
     }
+    
+    handleSubmit(event) {
+    	//event.preventDefault()
+    	this.props.dispatch(actions.addTodo(this.state.inputText))
+    	//return false;
+    	
+    }
 	render(){
 		return (
     			<div>
+    			
     			    <input name="inputText" type="text" onChange={this.handleChange.bind(this)} value={this.state.inputText}/>
-    			    <TextDisplay text={this.state.inputText}/>
+    			    <button onClick={this.handleSubmit.bind(this)}>submit</button>
+    			    
     			</div>
-			);
+			)
 	}
 }
-export default TextInput
+export default TodoInput
